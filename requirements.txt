@@ -1,0 +1,5 @@
+decorator==4.4.0
+Django==2.2
+django-bootstrap-form==3.4
+public==2019.3.22
+pytz==2018.9
