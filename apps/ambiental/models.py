@@ -1,6 +1,6 @@
 from django.db import models
-from apps.pessoal.models import Membro
 
+from apps.pessoal.models import Membro, Familia
 
 
 class Cultura(models.Model):
@@ -16,15 +16,12 @@ class Rebanho(models.Model):
     tipo = models.CharField(max_length=(30))
     quantidade = models.IntegerField
 
-
-
-
-
 class Propriedade(models.Model):
 
     nome = models.CharField(max_length=(100))
     areaTotal = models.DecimalField(max_digits=5, decimal_places=1)
-    administrador = models.ForeignKey(Membro, on_delete=models.PROTECT)
+    responsalvel = models.ForeignKey(Membro, on_delete=models.PROTECT)
+    proprietario = models.ForeignKey(Familia, on_delete=models.PROTECT)
     areaReserva = models.DecimalField(max_digits=5, decimal_places=5, null=True, blank=True)
     culturaPrimaria = models.ManyToManyField(Cultura)
     rebanho1 = models.ManyToManyField(Rebanho)

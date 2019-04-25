@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main %}
+ <h2>Tem certeza que deseja excluir a familia {{ object }} ?</h2>
+   <form method="post">
+    {% csrf_token %}
+    {{ form }}
+       <button type="submit" class="btn btn-danger">Confirmar</button>
+   </form>
+{% endblock %}

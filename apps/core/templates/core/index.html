@@ -1,9 +1,26 @@
 {% extends 'base.html' %}
 
 {% block main %}
+
+
+
  <div class="row">
-   <div class="col">
-       <footer class="footer">_</footer>
+
+
+   <div class="col-sm">
+      <a href="{% url 'list_familia' %}">Cooperados</a>
+
+   </div>
+
+   <div class="col-sm">
+       Segunda Coluna
+
+   </div>
+
+   <div class="col-sm">
+       <button>
+        <a href="{% url 'logout' %}">Logout</a>
+      </button>
 
    </div>
  </div>

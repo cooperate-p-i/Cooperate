@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,12 +10,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'stick-footer.css' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'signin.css' %}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+<nav class="navbar navbar-dark bg-dark">
+    <div>HOME</div>
+</nav>
 
-    <div class="container">
-        <div class="jumbotron">
+    <div class="container" align="center">
+        <div class="jumbotron" style="background-color: #DCDCDC">
             {% block main %}
             {% endblock %}
         </div>

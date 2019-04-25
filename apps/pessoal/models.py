@@ -1,7 +1,9 @@
 
 
 from django.db import models
+from django.urls import reverse, reverse_lazy
 from django.utils.datetime_safe import date
+
 
 
 
@@ -14,7 +16,8 @@ class Familia(models.Model):
     def __str__(self):
         return self.nome
 
-
+    def get_absolute_url(self):
+        return reverse_lazy('list_familia')
 
 class Membro(models.Model):
 
@@ -26,3 +29,6 @@ class Membro(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def get_absolute_url(self):
+        return reverse_lazy('list_membro')
