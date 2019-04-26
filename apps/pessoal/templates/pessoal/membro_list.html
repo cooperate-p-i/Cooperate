@@ -16,7 +16,7 @@
       {% for membro in object_list %}
             <div class="row">
                     <div class="col-sm border">
-                        <a href="">{{ membro }}</a>
+                        <a href="{% url 'detalhes_membro' membro.id %}">{{ membro }}</a>
                     </div>
                     <div class="col-sm border">
                         <a href="">{{ membro.dataDeNascimento }}</a>

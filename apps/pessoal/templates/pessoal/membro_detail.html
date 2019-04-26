@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+ {% block main %}
+  <div class="container border table" align="left">
+
+
+
+
+       <div class="row">
+        <div class="col-sm border">
+          <p>  <h5>Nome: </h5>{{ object.nome }} </p>
+          <p>  <h5>CPF: </h5>{{ object.cpf }} </p>
+          <p>  <h5>RG: </h5>{{ object.rg }} </p>
+          <p>  <h5>Familia: </h5>{{ object.familia }}</p>
+          <p>  <h5>Data de Nascimento: </h5>{{ object.dataDeNascimento }} </p>
+
+        </div>
+       </div>
+
+  </div>
+{% endblock %}

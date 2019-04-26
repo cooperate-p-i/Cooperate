@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apps.ambiental',
     'apps.core',
     'bootstrapform',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -103,7 +104,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 

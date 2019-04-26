@@ -31,4 +31,4 @@ class Membro(models.Model):
         return self.nome
 
     def get_absolute_url(self):
-        return reverse_lazy('list_membro')
+        return reverse_lazy('list_familia')

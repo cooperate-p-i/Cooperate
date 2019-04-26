@@ -3,3 +3,4 @@ Django==2.2
 django-bootstrap-form==3.4
 public==2019.3.22
 pytz==2018.9
+django-extensions==2.1.6

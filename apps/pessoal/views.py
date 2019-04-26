@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
-
+from django.utils import timezone
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
 from apps.pessoal.models import Membro, Familia
 
@@ -32,14 +32,16 @@ class ListFamilia(ListView):
 
 class CreateMembro(CreateView):
     model = Membro
-    fields = ['nome', 'rg', 'cpf', 'dataDeNascimento']
+    fields = ['nome', 'rg', 'cpf', 'dataDeNascimento', 'familia']
 
     def form_valid(self, form):
-        import pdb; pdb.set_trace()
-        membro = form.save(commit=False)
-        membro.familia = self.objects.all()
 
+        membro = form.save()
+
+
+        membro.save()
         return super(CreateMembro, self).form_valid(form)
+
 
 
 class ListMembro(ListView):
@@ -54,3 +56,12 @@ class ListMembro(ListView):
 
 
 
+class DetailMembro(DetailView):
+
+    queryset = Membro.objects.all()
+
+    def get_object(self):
+        obj = super().get_object()
+        obj.last_accessed = timezone.now()
+        obj.save()
+        return obj
