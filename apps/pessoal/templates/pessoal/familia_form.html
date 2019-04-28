@@ -8,6 +8,19 @@
    <form method="post" class="px-4 py-3">
     {% csrf_token %}
     {{ form | bootstrap }}
+       {% if object %}
+        <a href="{% url 'create_membro' object.id %}" class="btn btn-primary">Add Membro</a>
+           {% if object.propriedade_set.all %}
+            {% for propriedade in object.propriedade_set.all %}
+                {% if propriedade %}
+                    <a href="{% url 'detalhes_propriedade' propriedade.id %}">{{ propriedade.nome }}</a>
+                {% endif %}
+            {% endfor %}
+           {% else %}
+              <a href="{% url 'create_propriedade' object.id %}" class="btn btn-primary">Cadastrar Propriedade</a>
+           {% endif %}
+       {% endif %}
+
        <button type="submit" class="btn btn-outline-success">Salvar</button>
    </form>
 

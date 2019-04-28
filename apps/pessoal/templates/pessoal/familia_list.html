@@ -4,7 +4,7 @@
 
       <div class="row border">
           <div class="col-sm border">
-              <h3>Familias</h3>
+              <h3>Famílias</h3>
           </div>
           <div class="col-sm border">
               <h3>Data de Cadastro</h3>
@@ -17,14 +17,14 @@
       {% for familia in object_list %}
        <div class="row">
         <div class="col-sm border">
-            <a href="{% url 'list_membro' familia.id%}"> {{ familia }}</a>
+            <a href="{% url 'update_familia' familia.id%}"> {{ familia }}</a>
         </div>
         <div class="col-sm border">
             <p> {{ familia.dataDeCadastro }}</p>
         </div>
         <div class="col-sm border">
-            <a href="{% url 'update_familia' familia.id %}" class="btn btn-info">Editar</a>
-            <a href="{% url 'delete_familia' familia.id %}" class="btn btn-danger">Excluir</a>
+            <a href="{% url 'list_membro' familia.id %}" class="btn btn-info">Membros</a>
+            <a href="{% url 'delete_familia' familia.id %}" class="btn btn-danger">Excluir familia</a>
 
         </div>
        </div>
@@ -32,7 +32,7 @@
           Não há registros.
       {% endfor %}
 
-      <a href="{% url 'create_famila' %}" class="btn btn-success">Cadastrar familia</a>
+      <a href="{% url 'create_famila' %}" class="btn btn-success">Nova familia</a>
 
   </div>
 

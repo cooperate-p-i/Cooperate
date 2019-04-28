@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+ {% block main %}
+
+
+  <div class="container border table">
+            <div class="row">
+                <div class="col-sm border">
+                        <h3>Propriedades</h3>
+                    </div>
+
+            </div>
+      {% for propriedade in object_list %}
+            <div class="row">
+                    <div class="col-sm border">
+                        <a href="{% url 'detalhes_membro' membro.id %}">{{ propriedade }}</a>
+                    </div>
+
+            </div>
+      {% empty %}
+          Não há registros.
+      {% endfor %}
+  </div>
+
+ {% endblock %}

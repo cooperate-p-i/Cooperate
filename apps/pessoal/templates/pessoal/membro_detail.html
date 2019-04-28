@@ -1,20 +1,41 @@
 {% extends 'base.html' %}
- {% block main %}
-  <div class="container border table" align="left">
+{% block main %}
 
 
+    <h3 align="center">{{ object.nome }}</h3></br></br>
+
+    <div class="container table border" align="left">
 
 
-       <div class="row">
-        <div class="col-sm border">
-          <p>  <h5>Nome: </h5>{{ object.nome }} </p>
-          <p>  <h5>CPF: </h5>{{ object.cpf }} </p>
-          <p>  <h5>RG: </h5>{{ object.rg }} </p>
-          <p>  <h5>Familia: </h5>{{ object.familia }}</p>
-          <p>  <h5>Data de Nascimento: </h5>{{ object.dataDeNascimento }} </p>
-
-        </div>
+       <div class="row border">
+           <div class="col-sm"> <h5>Familia:</h5> </div>
+           <div class="col-sm"> {{ object.familia }} </div>
+       </div>
+       <div class="row border">
+           <div class="col-sm"> <h5>CPF:</h5> </div>
+           <div class="col-sm"> {{ object.cpf }} </div>
+       </div>
+       <div class="row border">
+           <div class="col-sm"> <h5>RG:</h5> </div>
+            <div class="col-sm"> {{ object.rg}} </div>
+       </div>
+       <div class="row border">
+           <div class="col-sm"> <h5>Data de nascimento:</h5> </div>
+           <div class="col-sm"> {{ object.dataDeNascimento }} </div>
+       </div>
+       <div class="row border">
+           <div class="col-sm"> <h5>Administrador?</h5> </div>
+            {% if object.propriedade_set.all %}
+                <div class="col-sm"> Sim </div>
+            {% else %}
+                <div class="col-sm"> Não </div>
+            {% endif %}
        </div>
 
+
   </div>
+
+     </br>
+        </br>
+        <div align="center"><a href="{% url 'update_propriedade' object.id %}" class="btn btn-info">Editar</a></div>
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block main %}
- <h2>Tem certeza que deseja excluir a familia {{ object }} ?</h2>
+ <h2>Tem certeza que deseja excluir a família {{ object }} ?</h2>
    <form method="post">
     {% csrf_token %}
     {{ form }}

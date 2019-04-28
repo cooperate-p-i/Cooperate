@@ -5,7 +5,7 @@ from .views import CreateFamilia, CreateMembro, ListMembro, ListFamilia, DeleteF
 urlpatterns = [
 
     path('novo', CreateFamilia.as_view(), name = 'create_famila'),
-    path('create', CreateMembro.as_view(), name = 'create_membro'),
+    path('create/<int:familia_id>', CreateMembro.as_view(), name = 'create_membro'),
     path('', ListFamilia.as_view(), name = 'list_familia'),
     path('list/<int:familia_id>', ListMembro.as_view(), name = 'list_membro'),
     path('detail/<int:pk>', DetailMembro.as_view(), name = 'detalhes_membro'),

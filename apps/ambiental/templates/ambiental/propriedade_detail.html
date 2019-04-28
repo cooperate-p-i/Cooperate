@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+ {% block main %}
+
+
+    <h3 align="center">{{ object.nome }}</h3></br></br>
+
+    <div class="container table border" align="left">
+
+
+       <div class="row border">
+           <div class="col-sm"> <h5>Familia:</h5> </div>
+           <div class="col-sm"> {{ object.proprietario }} </div>
+       </div>
+       <div class="row border">
+           <div class="col-sm"> <h5>Administrador:</h5> </div>
+           <div class="col-sm"> {{ object.responsavel }} </div>
+       </div>
+       <div class="row border">
+           <div class="col-sm"> <h5>Área Total:</h5> </div>
+            <div class="col-sm"> {{ object.areaTotal}} </div>
+       </div>
+       <div class="row border">
+           <div class="col-sm"> <h5>Área de Reserva:</h5> </div>
+           <div class="col-sm"> {{ object.areaReserva }} </div>
+       </div>
+       <div class="row border">
+           <div class="col-sm"> <h5>Cultura Primaria:</h5> </div>
+           <div class="col-sm"> {{ object.culturaPrimaria }} </div>
+       </div>
+       <div class="row border">
+           <div class="col-sm"> <h5>Rebanho:</h5> </div>
+           <div class="col-sm"> {{ object.rebanho1 }} </div>
+       </div>
+
+  </div>
+
+     </br>
+        </br>
+        <div align="center"><a href="{% url 'update_propriedade' object.id %}" class="btn btn-info">Editar</a></div>
+{% endblock %}

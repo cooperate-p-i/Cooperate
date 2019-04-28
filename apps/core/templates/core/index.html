@@ -1,27 +1,74 @@
 {% extends 'base.html' %}
 
 {% block main %}
-
-
-
  <div class="row">
 
+    <br>
+       <div class="col-sm">
 
-   <div class="col-sm">
-      <a href="{% url 'list_familia' %}">Cooperados</a>
+           <div class="row">
+            <div class="card" style="width: 18rem;">
+              <h2>
+                  <i class="fa fa-users" style="font-size:48px;color:black"></i>
+                  <a href="" style="color:black">Pessoal</a>
+              </h2>
+            </div>
+           </div>
 
-   </div>
+           <div class="row">
+                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                  <div class="card-header">Famílias</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Título de Card Secondary</h5>
+                        <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
+                      </div>
+                </div>
+            </div>
+       </div>
 
-   <div class="col-sm">
-       Segunda Coluna
+        <div class="col-sm">
+            <div class="row">
+                <div class="card" style="width: 18rem;">
+                  <h2>
+                      <i class="fa fa-pagelines" aria-hidden="true" style="font-size:48px;color:green"></i>
+                      <a href="" style="color:green">Ambiental</a>
+                  </h2>
+                </div>
+            </div>
 
-   </div>
+            <div class="row">
+                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                  <div class="card-header">Propriedades</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Título de Card Secondary</h5>
+                        <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
+                    </div>
+                 </div>
+            </div>
+        </div>
 
-   <div class="col-sm">
-       <button>
-        <a href="{% url 'logout' %}">Logout</a>
-      </button>
+        <div class="col-sm">
+            <div class="row">
+                <div class="card" style="width: 18rem;">
+                  <h2>
+                      <i class="fa fa-money" aria-hidden="true" style="font-size:48px;color:gray"></i>
+                      <a href="" style="color:gray">Financeiro</a>
+                  </h2>
+                </div>
+            </div>
 
-   </div>
+            <div class="row">
+                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                  <div class="card-header">Receitas</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Título de Card Secondary</h5>
+                        <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
+                    </div>
+                 </div>
+            </div>
+        </div>
+
+
+
  </div>
 {% endblock %}

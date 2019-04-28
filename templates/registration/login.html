@@ -15,15 +15,17 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+<br>
+<br>
   <div class="container">
-      <div class="jumbotron">
+      <div class="jumbotron" style="background-color: #DCDCDC">
 {% block main %}
 
 
             <div class="row" align="center">
               <div class="col-sm"></div>
                 <div class="col-sm border">
-                    <h2> <img src="{% static 'cooperate.png' &}"> </h2>
+                    <h1> COOPERATE </h1>
                         <form  method = "POST" class="form-">
                              {% csrf_token %}
                              {{form | bootstrap}}

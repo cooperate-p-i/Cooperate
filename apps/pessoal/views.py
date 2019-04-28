@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
+from apps.pessoal.forms import MembroForm
 from apps.pessoal.models import Membro, Familia
 
 
@@ -32,15 +33,13 @@ class ListFamilia(ListView):
 
 class CreateMembro(CreateView):
     model = Membro
-    fields = ['nome', 'rg', 'cpf', 'dataDeNascimento', 'familia']
+    form_class = MembroForm
 
-    def form_valid(self, form):
+    def get_form_kwargs(self):
+        kwargs = super(CreateMembro, self).get_form_kwargs()
+        kwargs.update({'id': self.kwargs.get('familia_id')})
+        return kwargs
 
-        membro = form.save()
-
-
-        membro.save()
-        return super(CreateMembro, self).form_valid(form)
 
 
 
