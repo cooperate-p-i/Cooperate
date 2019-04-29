@@ -4,23 +4,33 @@
  {% block main %}
 
 
-  <div class="container border table">
-            <div class="row">
-                <div class="col-sm border">
-                        <h3>Membros</h3>
-                    </div>
+  <div class="container">
+        <h3>Família {{ object }}</h3>
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col"></th>
 
-            </div>
-      {% for membro in object_list %}
-            <div class="row">
-                    <div class="col-sm border">
-                        <a href="{% url 'detalhes_membro' membro.id %}">{{ membro }}</a>
-                    </div>
-
-            </div>
-      {% empty %}
-          Não há registros.
-      {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+          {% for membro in object_list %}
+            <tr>
+              <th scope="row">{{ membro.id }}</th>
+              <td>{{ membro.nome }}</td>
+             {% if membro.propriedade_set.all %}
+              <td>Administrador</td>
+             {% else %}
+               <td> </td>
+             {% endif %}
+            </tr>
+          {% empty %}
+            Nenhum membro cadastrado!
+          {% endfor %}
+          </tbody>
+      </table>
   </div>
 
  {% endblock %}

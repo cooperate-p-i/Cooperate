@@ -1,39 +1,42 @@
 {% extends 'base.html' %}
  {% block main %}
-  <div class="container border table">
+  <div class="container">
+       <h2 align="center">Famílias Cadastradas</h2>
+            <br>
 
-      <div class="row border">
-          <div class="col-sm border">
-              <h3>Famílias</h3>
-          </div>
-          <div class="col-sm border">
-              <h3>Data de Cadastro</h3>
-          </div>
-          <div class="col-sm border">
-              <h3>Ações</h3>
-          </div>
-      </div>
+         <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Data de Cadastro</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
 
-      {% for familia in object_list %}
-       <div class="row">
-        <div class="col-sm border">
-            <a href="{% url 'update_familia' familia.id%}"> {{ familia }}</a>
-        </div>
-        <div class="col-sm border">
-            <p> {{ familia.dataDeCadastro }}</p>
-        </div>
-        <div class="col-sm border">
-            <a href="{% url 'list_membro' familia.id %}" class="btn btn-info">Membros</a>
-            <a href="{% url 'delete_familia' familia.id %}" class="btn btn-danger">Excluir familia</a>
+        {% for familia in object_list %}
+          <tbody>
+            <tr>
+              <th scope="row">{{ familia.id }}</th>
+              <td> <a href="{% url 'update_familia' familia.id %}" style="color:black; font-size:20px"> {{ familia.nome }} </a> </td>
+              <td>{{ familia.dataDeCadastro }}</td>
+              <td>
+                  <a href="{% url 'list_membro' familia.id %}">
+                      <i class="fa fa-users" style="font-size:20px;color:black"></i>
+                  </a> &nbsp
+                  <a href="{% url 'delete_familia' familia.id %}">
+                      <i class="fa fa-trash" aria-hidden="true" style="color:red; font-size:20px"></i>
+                  </a>
+              </td>
+            </tr>
 
-        </div>
-       </div>
-      {% empty %}
-          Não há registros.
-      {% endfor %}
+          </tbody>
+       {% endfor %}
+    </table>
 
-      <a href="{% url 'create_famila' %}" class="btn btn-success">Nova familia</a>
 
   </div>
-
-  {% endblock %}
+    <a href="{% url 'create_famila' %}" style="color:black">
+      <i class="fa fa-plus-square" aria-hidden="true" style="font-size:30px;"></i>
+    </a>
+{% endblock %}

@@ -1,7 +1,7 @@
 {% load static %}
  {% load bootstrap %}
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'stick-footer.css' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'signin.css' %}">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}COOPERATE login{% endblock %}</title>
 </head>
 <body>
 <br>
@@ -24,8 +24,10 @@
 
             <div class="row" align="center">
               <div class="col-sm"></div>
-                <div class="col-sm border">
-                    <h1> COOPERATE </h1>
+                <div class="col-sm">
+                    <i class="fa fa-recycle" aria-hidden="true" style="font-size:50px"></i>
+
+                    <h2> COOPERATE </h2>
                         <form  method = "POST" class="form-">
                              {% csrf_token %}
                              {{form | bootstrap}}
