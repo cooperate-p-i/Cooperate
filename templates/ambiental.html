@@ -2,8 +2,7 @@
 
 
 {% block main %}
-<div class="container">
-  <div class="row">
+ <div class="row">
 
     <br>
        <div class="col-sm">
@@ -34,7 +33,7 @@
                 <div class="card" style="width: 18rem;">
                   <h2>
                       <i class="fa fa-pagelines" aria-hidden="true" style="font-size:48px;color:green"></i>
-                      <a href="templates/ambiental.html" style="color:green">Ambiental</a>
+                      <a href="{% url 'list_propriedade' %}" style="color:green">Ambiental</a>
                   </h2>
                 </div>
             </div>
@@ -72,6 +71,7 @@
             </div>
         </div>
 
-     </div>
-  </div>
+
+
+ </div>
 {% endblock %}

@@ -4,13 +4,13 @@ from django.db import models
 from django.urls import reverse, reverse_lazy
 from django.utils.datetime_safe import date
 
-
+from apps.cooperativa.models import Cooperativa
 
 
 class Familia(models.Model):
 
     nome = models.CharField(max_length=(100), unique=True)
-
+    cooperativa = models.ForeignKey(Cooperativa, on_delete=models.PROTECT)
     dataDeCadastro = models.DateField(auto_now_add=False, auto_now=False, default=date.today)
 
     def __str__(self):

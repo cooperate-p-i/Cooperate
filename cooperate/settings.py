@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'apps.pessoal',
     'apps.ambiental',
     'apps.core',
+    'apps.cooperativa',
     'bootstrapform',
     'django_extensions'
 ]

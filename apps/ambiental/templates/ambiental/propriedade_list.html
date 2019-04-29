@@ -4,23 +4,35 @@
  {% block main %}
 
 
-  <div class="container border table">
-            <div class="row">
-                <div class="col-sm border">
-                        <h3>Propriedades</h3>
-                    </div>
+  <div class="container">
 
-            </div>
-      {% for propriedade in object_list %}
-            <div class="row">
-                    <div class="col-sm border">
-                        <a href="{% url 'detalhes_membro' membro.id %}">{{ propriedade }}</a>
-                    </div>
+           <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Administrador</th>
+                  <th scope="col">Família</th>
+                </tr>
+              </thead>
 
-            </div>
-      {% empty %}
-          Não há registros.
-      {% endfor %}
+              <tbody>
+             {% for prop in object_list %}
+              {% if prop.proprietario.cooperativa == user.funcionario.cooperativa %}
+                <tr>
+                  <th scope="row">{{ prop.id }}</th>
+                    <td> <a href="{% url 'detalhes_propriedade' prop.id %}" style="color:black">{{ prop.nome }}</a> </td>
+                    <td> <a href="{% url 'detalhes_membro' prop.responsavel_id %}" style="color:black"> {{ prop.responsavel }}</a></td>
+                    <td> {{ prop.proprietario }} </td>
+                </tr>
+              {% endif %}
+              </tbody>
+
+             {% empty %}
+               Nenhuma Propriedade cadastrada!
+             {% endfor %}
+           </table>
+
   </div>
 
  {% endblock %}

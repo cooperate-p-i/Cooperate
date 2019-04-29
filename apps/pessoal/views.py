@@ -1,7 +1,9 @@
+
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
+
 
 from apps.pessoal.forms import MembroForm
 from apps.pessoal.models import Membro, Familia
@@ -13,6 +15,7 @@ class CreateFamilia(CreateView):
 
     def form_valid(self, form):
         familia = form.save(commit = False)
+        familia.cooperativa = self.request.user.funcionario.cooperativa
 
         familia.save()
         return super(CreateFamilia, self).form_valid(form)
@@ -29,6 +32,11 @@ class UpdateFamilia(UpdateView):
 
 class ListFamilia(ListView):
     model = Familia
+
+    def get_queryset(self):
+        cooperativa_logada = self.request.user.funcionario.cooperativa
+        queryset = Familia.objects.filter(cooperativa=cooperativa_logada)
+        return queryset
 
 
 class CreateMembro(CreateView):

@@ -22,7 +22,9 @@ class CreatePropriedade(CreateView):
 
 
 class ListPropriedade(ListView):
+
     model = Propriedade
+
 
 
 
