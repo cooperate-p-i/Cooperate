@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.utils import timezone
 from django.views.generic import CreateView, ListView, DeleteView, DetailView, UpdateView
+from django.views.generic.base import View
 
 from apps.ambiental.forms import PropriedadeForm
 from apps.ambiental.models import Propriedade
@@ -26,11 +27,6 @@ class ListPropriedade(ListView):
     model = Propriedade
 
 
-
-
-
-
-
 class DetailPropriedade(DetailView):
 
     queryset = Propriedade.objects.all()
@@ -47,3 +43,9 @@ class DetailPropriedade(DetailView):
 class UpdatePropriedade(UpdateView):
         model = Propriedade
         fields = ['nome', 'areaTotal','areaReserva','responsavel', 'proprietario', 'culturaPrimaria', 'rebanho1']
+
+
+def homeAmbiental(request):
+    data = {}
+    data['usuario'] = request.user
+    return render(request, 'ambiental/ambiental_index.html', data)
