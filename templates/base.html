@@ -1,4 +1,5 @@
 {% load static %}
+{%if user %}
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -20,8 +21,9 @@
                 {% include 'menu.html' %}
     {% endblock %}
 
-    <div class="container" align="center">
-        <div class="jumbotron" style="background-color: #DCDCDC">
+    <div class="container-fluid" align="center">
+        <div class="jumbotron" style="background-color: #DCDCDC" >
+            &nbsp;
             {% block main %}
             {% endblock %}
         </div>
@@ -38,3 +40,4 @@
 
 </body>
 </html>
+{% endif %}

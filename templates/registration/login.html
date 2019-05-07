@@ -25,9 +25,7 @@
             <div class="row" align="center">
               <div class="col-sm"></div>
                 <div class="col-sm">
-                    <i class="fa fa-recycle" aria-hidden="true" style="font-size:50px"></i>
-
-                    <h2> COOPERATE </h2>
+                    <img src="{% static 'cooperate.png' %}">
                         <form  method = "POST" class="form-">
                              {% csrf_token %}
                              {{form | bootstrap}}
