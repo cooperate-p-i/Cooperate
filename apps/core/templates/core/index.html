@@ -3,75 +3,72 @@
 
 {% block main %}
 
-  <div class="row">
+<div class="row justify-content-center">
+  <div class="col-md-3">
+    <div class="row justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <h2>
+          <i class="fa fa-users" style="font-size:30px;color:black"></i>
+          <a href="{% url 'list_familia' %}" style="color:black">Pessoal</a>
+        </h2>
+      </div>
+    </div>
 
-    <br>
-       <div class="col">
-
-           <div class="row">
-            <div class="card" style="width: 18rem;">
-              <h2>
-                  <i class="fa fa-users" style="font-size:48px;color:black"></i>
-                  <a href="{% url 'list_familia' %}" style="color:black">Pessoal</a>
-              </h2>
-            </div>
-           </div>
-
-           <div class="row">
-                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                  <div class="card-header">Famílias</div>
-                      <div class="card-body">
-                        <h5 class="card-title">Cadastre Famílias, membros e propriedades</h5>
-                        <p class="card-text">Aqui serão feitos os cadastros das familias, seus membros e as propriedades que pertencem.
-                            Todos os dados cadastrais das famílias se encontram aqui!</p>
-                      </div>
-                </div>
-            </div>
-       </div>
-
-        <div class="col">
-            <div class="row">
-                <div class="card" style="width: 18rem;">
-                  <h2>
-                      <i class="fa fa-pagelines" aria-hidden="true" style="font-size:48px;color:green"></i>
-                      <a href="{% url 'home_ambiental' %}" style="color:green">Ambiental</a>
-                  </h2>
-                </div>
-            </div>
-
-            <div class="row">
-                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                  <div class="card-header">Propriedades</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Cadastre propriedades, rebanhos e culturas produzidas</h5>
-                        <p class="card-text">Faça aqui o cadastro e o levantamento de tudo que é produzido por propriedade cadastrada.</p>
-                    </div>
-                 </div>
-            </div>
+    <div class="row justify-content-center">
+      <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+        <!-- <div class="card-header">Famílias</div> -->
+        <div class="card-body">
+          <h5 class="card-title">Cadastre Famílias, membros e propriedades</h5>
+          <p class="card-text">Aqui serão feitos os cadastros das familias, seus membros e as propriedades que pertencem.
+          Todos os dados cadastrais das famílias se encontram aqui!</p>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="col">
-            <div class="row">
-                <div class="card" style="width: 18rem;">
-                  <h2>
-                      <i class="fa fa-money" aria-hidden="true" style="font-size:48px;color:gray"></i>
-                      <a href="" style="color:gray">Financeiro</a>
-                  </h2>
-                </div>
-            </div>
+  <div class="col-md-3">
+    <div class="row justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <h2>
+          <i class="fa fa-pagelines" aria-hidden="true" style="font-size:30px;color:green"></i>
+          <a href="{% url 'home_ambiental' %}" style="color:green">Ambiental</a>
+        </h2>
+      </div>
+    </div>
 
-            <div class="row">
-                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                  <div class="card-header">Finanças</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Movimentações financeiras</h5>
-                        <p class="card-text">Cadastre aqui todas as receitas e despesas por família.
-                            Gerando relatórios gerenciais, obtenha os dados necessários para organizar as finanças e maximizar os lucros! </p>
-                    </div>
-                 </div>
-            </div>
+    <div class="row justify-content-center">
+      <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+        <!-- <div class="card-header">Propriedades</div> -->
+        <div class="card-body">
+          <h5 class="card-title">Cadastre propriedades, rebanhos e culturas produzidas</h5>
+          <p class="card-text">Faça aqui o cadastro e o levantamento de tudo que é produzido por propriedade cadastrada.</p>
         </div>
+      </div>
+    </div>
+  </div>
 
-     </div>
+  <div class="col-md-3">
+    <div class="row justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <h2>
+          <i class="fa fa-money" aria-hidden="true" style="font-size:30px;color:gray"></i>
+          <a href="" style="color:gray">Financeiro</a>
+        </h2>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+        <!-- <div class="card-header">Finanças</div> -->
+        <div class="card-body">
+          <h5 class="card-title">Movimentações financeiras</h5>
+          <p class="card-text">Cadastre aqui todas as receitas e despesas por família.
+          Gerando relatórios gerenciais, obtenha os dados necessários para organizar as finanças e maximizar os lucros! </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 {% endblock %}
