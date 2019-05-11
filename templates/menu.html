@@ -1,55 +1,74 @@
 {% load i18n %}
-{% load static %}
+
+
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <!-- Navbar brand -->
-    <a class="navbar-brand" href="#">
-      <img src="{% static 'cooperate.png' %}" alt="">
-      <!-- <i class="fa fa-recycle" aria-hidden="true" style="font-size:15px">COOPERATE</i> -->
-    </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <!-- Collapse button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="#"><i class="fa fa-recycle" aria-hidden="true" style="font-size:15px">COOPERATE</i></a>
 
-    <!-- Collapsible content -->
-    <div class="justify-content-end collapse navbar-collapse" id="navbarNav">
 
-      <!-- Links -->
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'home'%}">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'list_familia' %}">Pessoal</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'home_ambiental' %}">Ambiental</a>
-        </li>
+      <!-- Collapse button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <!-- Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">Financeiro</a>
-          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Relatórios</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" >Bem-vindo! {{ user.funcionario }}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">Sair</a>
-        </li>
-      </ul>
-      <!-- Links -->
-    </div>
-  </div>
-</nav>
-<!--/.Navbar-->
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home'%}">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'list_familia' %}">Pessoal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home_ambiental' %}">Ambiental</a>
+          </li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">Financeiro</a>
+            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Contas a pagar</a>
+              <a class="dropdown-item" href="#">Contas a receber</a>
+              <a class="dropdown-item" href="#">Contas financeiras</a>
+              <a class="dropdown-item" href="#">Centro de custo</a>
+              <a class="dropdown-item" href="#">Controle de bens</a>
+            </div>
+          </li>
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">Relatórios</a>
+            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Relatório Contas a pagar</a>
+              <a class="dropdown-item" href="#">Relatório Contas a receber</a>
+              <a class="dropdown-item" href="#"> Relatório Contas financeiras</a>
+              <a class="dropdown-item" href="#">Relatório de bens</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Planejamento</a>
+          </li>
+          <li class="nav-item">
+                 <a class="nav-link" >Bem-vindo! {{ user.funcionario }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Sair</a>
+
+            </li>
+        </ul>
+        <!-- Links -->
+
+      </div>
+      <!-- Collapsible content -->
+
+    </nav>
+    <!--/.Navbar-->

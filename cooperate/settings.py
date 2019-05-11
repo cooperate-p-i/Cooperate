@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'apps.ambiental',
     'apps.core',
     'apps.cooperativa',
+    'apps.contaspagar',
+    'apps.contasreceber',
+    'apps.centrocusto',
     'bootstrapform',
 
 
