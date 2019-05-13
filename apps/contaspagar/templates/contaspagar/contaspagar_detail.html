@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+    {% block main %}
+
+        <h3 align="center">{{ object.nome }}</h3></br></br>
+
+            <div class="container table border" align="left">
+
+
+               <div class="row border">
+                   <div class="col-sm"> <h5>Descrição</h5> </div>
+                   <div class="col-sm"> {{ object.descricao }} </div>
+               </div>
+               <div class="row border">
+                   <div class="col-sm"> <h5>Parcela Atual</h5> </div>
+                   <div class="col-sm"> {{ object.parcela_atual }} </div>
+               </div>
+               <div class="row border">
+                   <div class="col-sm"> <h5>Data do documento</h5> </div>
+                    <div class="col-sm"> {{ object.data_documento}} </div>
+               </div>
+               <div class="row border">
+                   <div class="col-sm"> <h5>Data de pagamento</h5> </div>
+                   <div class="col-sm"> {{ object.data_pagar }} </div>
+               </div>
+
+               <div class="row border">
+                   <div class="col-sm"> <h5>Valor</h5> </div>
+                   <div class="col-sm"> {{ object.valor }} </div>
+               </div>
+
+               <div class="row border">
+                   <div class="col-sm"> <h5>Data de pagamento</h5> </div>
+                   <div class="col-sm"> {{ object.data_pagar }} </div>
+               </div>
+
+               <div class="row border">
+                   <div class="col-sm"> <h5>Total de parcelas</h5> </div>
+                   <div class="col-sm"> {{ object.numero_parcela_total }} </div>
+               </div>
+
+                <div class="row border">
+                   <div class="col-sm"> <h5>Pago</h5> </div>
+                   <div class="col-sm"> {{ object.status }} </div>
+               </div>
+
+
+        </div>
+
+
+ {% endblock %}

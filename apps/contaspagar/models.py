@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse, reverse_lazy
+
 from apps.cooperativa.models import Cooperativa
 from apps.pessoal.models import Familia
 from apps.centrocusto.models import Centrocusto
@@ -21,3 +23,6 @@ class ContasPagar(models.Model):
 
     def __str__(self):
             return self.nome
+
+    def get_absolute_url(self):
+        return reverse('select')

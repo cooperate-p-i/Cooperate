@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+ {% block main %}
+  <div class="container">
+
+         <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Selecione a familia</th>
+              <th scope="col"></th>
+
+            </tr>
+          </thead>
+
+        {% for familia in user.funcionario.cooperativa.familia_set.all %}
+
+          <tbody>
+            <tr>
+
+              <td> <a href="{% url 'list_conta_pagar' familia.id %}" style="color:black; font-size:20px"> {{ familia.nome }} </a> </td>
+              <td>
+                    <a href="{% url 'create_conta_pagar' familia.id %}" class="btn btn-dark">
+                      Adicionar Conta a pagar
+                    </a>
+              </td>
+
+
+            </tr>
+
+          </tbody>
+
+       {% endfor %}
+    </table>
+
+
+  </div>
+
+{% endblock %}
