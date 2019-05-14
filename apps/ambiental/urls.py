@@ -1,7 +1,7 @@
 from django.urls import path
 
 from apps.ambiental.views import CreatePropriedade, UpdatePropriedade, DetailPropriedade, ListPropriedade, homeAmbiental,\
-                                   CreateCultura, ListCultura, UpdateCultura, ListRebanho, UpdateRebanho,CreateRebanho
+                                   CreateCultura, ListCultura, UpdateCultura, ListProducao, UpdateProducao,CreateProducao
 
 
 
@@ -19,9 +19,9 @@ urlpatterns =  [
     path('list', ListCultura.as_view(), name = 'list_cultura'),
     path('update/<int:pk>', UpdateCultura.as_view(), name = 'update_cultura'),
 
-    path('listagem', ListRebanho.as_view(), name = 'list_rebanho'),
-    path('criar', CreateRebanho.as_view(), name = 'create_rebanho'),
-    path('update/<int:pk>', UpdateRebanho.as_view(), name = 'update_rebanho'),
+    path('listagem', ListProducao.as_view(), name = 'list_producao'),
+    path('criar', CreateProducao.as_view(), name = 'create_producao'),
+    path('update/<int:pk>', UpdateProducao.as_view(), name = 'update_producao'),
 
 
 

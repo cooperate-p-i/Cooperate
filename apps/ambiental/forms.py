@@ -7,6 +7,7 @@ from apps.pessoal.models import Familia, Membro
 class PropriedadeForm(ModelForm):
 
     def __init__(self, id, *args, **kwargs):
+        from builtins import super
         super(PropriedadeForm, self).__init__(*args, **kwargs)
         self.fields['proprietario'].queryset = Familia.objects.filter(id = id)
         self.fields['responsavel'].queryset = Membro.objects.filter(familia_id= id)

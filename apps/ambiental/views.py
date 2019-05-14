@@ -1,3 +1,5 @@
+from builtins import super
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
@@ -8,7 +10,7 @@ from django.views.generic import CreateView, ListView, DeleteView, DetailView, U
 from django.views.generic.base import View
 
 from apps.ambiental.forms import PropriedadeForm
-from apps.ambiental.models import Propriedade, Cultura, Rebanho
+from apps.ambiental.models import Propriedade, Cultura, Producao
 
 
 class CreatePropriedade(CreateView):
@@ -33,6 +35,7 @@ class DetailPropriedade(DetailView):
     queryset = Propriedade.objects.all()
 
     def get_object(self):
+
         obj = super().get_object()
         obj.last_accessed = timezone.now()
         obj.save()
@@ -66,14 +69,14 @@ class UpdateCultura(CreateView):
 
 #Rebanhos
 
-class ListRebanho(ListView):
-    model = Rebanho
+class ListProducao(ListView):
+    model = Producao
 
-class CreateRebanho(CreateView):
-    model = Rebanho
-    fields = ['tipo', 'quantidade', 'propriedade']
+class CreateProducao(CreateView):
+    model = Producao
+    fields = ['tipo', 'quantidade', 'unidade']
 
-class UpdateRebanho(CreateView):
-    model = Rebanho
-    fields = ['tipo', 'quantidade', 'propriedade']
+class UpdateProducao(CreateView):
+    model = Producao
+    fields = ['tipo', 'quantidade', 'unidade']
 

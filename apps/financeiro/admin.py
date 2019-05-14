@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Orcamento, Rentabilidade
+
+admin.site.register(Orcamento)
+admin.site.register(Rentabilidade)

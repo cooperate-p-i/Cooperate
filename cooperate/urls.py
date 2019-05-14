@@ -20,15 +20,16 @@ from django.urls import path, include
 from cooperate import settings
 
 urlpatterns = [
+    path('jet/', include('jet.urls')),  # GRAPELLU
     path('admin/', admin.site.urls),
     path('membros/', include('apps.pessoal.urls')),
     path('familias/', include('apps.pessoal.urls')),
-    path('rebanhos/', include('apps.ambiental.urls')),
+    path('producao/', include('apps.ambiental.urls')),
     path('culturas/', include('apps.ambiental.urls')),
     path('propriedades/', include('apps.ambiental.urls')),
     path('ambiental/', include('apps.ambiental.urls')),
-    path('centro-custos/', include('apps.centrocusto.urls')),
-    path('contas-a-pagar/', include('apps.contaspagar.urls')),
+    path('orcamento/', include('apps.financeiro.urls')),
+    path('rentabilidade/', include('apps.financeiro.urls')),
     path('clientes/', include('apps.clientes.urls')),
     path('', include('apps.core.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
