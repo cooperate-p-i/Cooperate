@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+ {% block main %}
+
+
+  <div class="container">
+
+           <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Quantidade</th>
+                  <th scope="col">Propriedade</th>
+                </tr>
+              </thead>
+
+              <tbody>
+             {% for producao in object_list %}
+               {% if producao.propriedade.proprietario.cooperativa %}
+
+                <tr>
+                  <th scope="row">{{ producao.id }}</th>
+                    <td> <a href="" style="color:black">{{ producao.nome }}</a> </td>
+                    <td> <a href="" style="color:black"> {{ producao.tipo }}</a></td>
+                    <td> <a href="" style="color:black"> {{ producao.quantidade }}</a></td>
+                    <td> {{ producao.propriedade }} </td>
+                </tr>
+               {% endif %}
+              </tbody>
+
+             {% empty %}
+               Nenhuma cultura cadastrada!
+             {% endfor %}
+           </table>
+
+            <a href="{% url 'create_producao' %}" style="color:black">
+      <i class="fa fa-plus-square" aria-hidden="true" style="font-size:30px;"></i>
+    </a>
+  </div>
+
+ {% endblock %}
