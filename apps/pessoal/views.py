@@ -72,3 +72,7 @@ class DetailMembro(DetailView):
         obj.last_accessed = timezone.now()
         obj.save()
         return obj
+
+class UpdateMembro(UpdateView):
+    model = Membro
+    fields = ['nome', 'rg', 'cpf', 'dataDeNascimento']

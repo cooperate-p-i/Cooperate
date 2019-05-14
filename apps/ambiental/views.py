@@ -8,7 +8,7 @@ from django.views.generic import CreateView, ListView, DeleteView, DetailView, U
 from django.views.generic.base import View
 
 from apps.ambiental.forms import PropriedadeForm
-from apps.ambiental.models import Propriedade, Cultura
+from apps.ambiental.models import Propriedade, Cultura, Rebanho
 
 
 class CreatePropriedade(CreateView):
@@ -43,7 +43,7 @@ class DetailPropriedade(DetailView):
 
 class UpdatePropriedade(UpdateView):
         model = Propriedade
-        fields = ['nome', 'areaTotal','areaReserva','responsavel', 'proprietario', 'culturaPrimaria', 'rebanho1']
+        fields = ['nome', 'areaTotal','areaReserva','responsavel', 'proprietario']
 
 @login_required
 def homeAmbiental(request):
@@ -64,4 +64,16 @@ class UpdateCultura(CreateView):
     model = Cultura
     fields = ['nome', 'tipo', 'areaPlantada', 'propriedade']
 
+#Rebanhos
+
+class ListRebanho(ListView):
+    model = Rebanho
+
+class CreateRebanho(CreateView):
+    model = Rebanho
+    fields = ['tipo', 'quantidade', 'propriedade']
+
+class UpdateRebanho(CreateView):
+    model = Rebanho
+    fields = ['tipo', 'quantidade', 'propriedade']
 

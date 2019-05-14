@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import CreateFamilia, CreateMembro, ListMembro, ListFamilia, DeleteFamilia, UpdateFamilia, DetailMembro
+from .views import CreateFamilia, CreateMembro, ListMembro, ListFamilia, DeleteFamilia, UpdateFamilia, DetailMembro, UpdateMembro
 
 urlpatterns = [
 
@@ -11,6 +11,8 @@ urlpatterns = [
     path('detail/<int:pk>', DetailMembro.as_view(), name = 'detalhes_membro'),
     path('delete/<int:pk>', DeleteFamilia.as_view(), name = 'delete_familia'),
     path('update/<int:pk>', UpdateFamilia.as_view(), name = 'update_familia'),
+    path('atualiza/<int:pk>', UpdateMembro.as_view(), name = 'update_membro'),
+
 
 
 ]

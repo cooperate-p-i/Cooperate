@@ -6,10 +6,10 @@ from apps.pessoal.models import Membro, Familia
 class Propriedade(models.Model):
 
     nome = models.CharField(max_length=(100))
-    areaTotal = models.DecimalField(max_digits=10, decimal_places=1)
+    areaTotal = models.DecimalField(max_digits=16, decimal_places=1)
     responsavel = models.ForeignKey(Membro, on_delete=models.CASCADE)
     proprietario = models.ForeignKey(Familia, on_delete=models.CASCADE)
-    areaReserva = models.DecimalField( max_digits=10, decimal_places=1, null=True, blank=True)
+    areaReserva = models.DecimalField( max_digits=16, decimal_places=1, null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -20,8 +20,8 @@ class Propriedade(models.Model):
 class Cultura(models.Model):
     nome = models.CharField(max_length=(50))
     tipo = models.CharField(max_length=(20))
-    areaPlantada = models.DecimalField(max_digits=5, decimal_places=2)
-    propriedade = models.ManyToManyField(Propriedade, null=True, blank=True)
+    areaPlantada = models.DecimalField(max_digits=11, decimal_places=1)
+    propriedade = models.ForeignKey(Propriedade, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -31,5 +31,8 @@ class Cultura(models.Model):
 
 class Rebanho(models.Model):
     tipo = models.CharField(max_length=(30))
-    quantidade = models.IntegerField
-    propriedade = models.ManyToManyField(Propriedade, null=True, blank=True)
+    quantidade = models.IntegerField()
+    propriedade = models.ForeignKey(Propriedade, on_delete=models.CASCADE, null=True, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('list_rebanho')

@@ -19,7 +19,7 @@
           {% for membro in object_list %}
             <tr>
               <th scope="row">{{ membro.id }}</th>
-              <td>{{ membro.nome }}</td>
+              <td> <a href="{% url 'detalhes_membro' membro.id %}" style="color:black"> {{ membro.nome }} </a></td>
              {% if membro.propriedade_set.all %}
               <td>Administrador</td>
              {% else %}
