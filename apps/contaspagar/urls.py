@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import CreateContasPagar,ListContasPagar, select,DetailContaPagar
+from .views import CreateContasPagar,ListContasPagar, select,DetailContaPagar, ExportarExcel
 
 urlpatterns = [
 
@@ -8,6 +8,8 @@ urlpatterns = [
     path('list/<int:familia_id>', ListContasPagar.as_view(), name = 'list_conta_pagar'),
     path('select', select, name = 'select'),
     path('detalhes/<int:pk>', DetailContaPagar.as_view(), name = 'detail_conta_pagar'),
+    path('relatorio-contas-a-pagar>', ExportarExcel.as_view(), name = 'relatorio_conta_pagar'),
+
 
 
 

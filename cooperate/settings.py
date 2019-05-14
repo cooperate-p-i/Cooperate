@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.contaspagar',
     'apps.contasreceber',
     'apps.centrocusto',
+    'apps.clientes',
     'bootstrapform',
 
 

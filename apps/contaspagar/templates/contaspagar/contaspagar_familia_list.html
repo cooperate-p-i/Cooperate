@@ -6,6 +6,9 @@
           <thead class="thead-dark">
             <tr>
               <th scope="col">Selecione a familia</th>
+              <th scope="col">Gerenciar</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
               <th scope="col"></th>
 
             </tr>
@@ -17,9 +20,22 @@
             <tr>
 
               <td> <a href="{% url 'list_conta_pagar' familia.id %}" style="color:black; font-size:20px"> {{ familia.nome }} </a> </td>
+              <td> <a href="{% url 'relatorio_conta_pagar' %}">rel </a> </td>
               <td>
                     <a href="{% url 'create_conta_pagar' familia.id %}" class="btn btn-dark">
-                      Adicionar Conta a pagar
+                      Contas a pagar
+                    </a>
+              </td>
+
+              <td>
+                    <a href="{% url 'create_conta_pagar' familia.id %}" class="btn btn-dark">
+                      Contas a Receber
+                    </a>
+              </td>
+
+              <td>
+                    <a href="{% url 'create_conta_pagar' familia.id %}" class="btn btn-dark">
+                      Produção
                     </a>
               </td>
 

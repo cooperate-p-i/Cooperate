@@ -31,17 +31,14 @@
             <a class="nav-link" href="{% url 'home_ambiental' %}">Ambiental</a>
           </li>
 
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'list_cliente' %}">Clientes</a>
+          </li>
+
           <!-- Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">Financeiro</a>
-            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="{% url 'select' %}">Contas a pagar</a>
-              <a class="dropdown-item" href="#">Contas a receber</a>
-              <a class="dropdown-item" href="#">Contas financeiras</a>
-              <a class="dropdown-item" href="{% url 'list_centrocusto' %}">Centro de custo</a>
-              <a class="dropdown-item" href="#">Controle de bens</a>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'select' %}" >Financeiro</a>
+
           </li>
           <!-- Dropdown -->
           <li class="nav-item dropdown">

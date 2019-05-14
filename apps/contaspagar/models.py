@@ -10,7 +10,7 @@ class ContasPagar(models.Model):
     descricao = models.CharField(max_length=255)
     parcela_atual= models.CharField(max_length=30,null=True, blank=True)
     data_documento = models.DateField()
-    data_pagar = models.DateField()
+    data_pagar = models.DateField(null=True, blank=True)
     cooperativa = models.ForeignKey(Cooperativa, on_delete=models.CASCADE)
     centrocusto = models.ForeignKey(Centrocusto, on_delete=models.CASCADE)
     familia = models.ForeignKey(Familia, on_delete=models.CASCADE)

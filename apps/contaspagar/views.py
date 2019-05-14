@@ -1,7 +1,14 @@
+import io
+
+import xlwt
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.template.loader import get_template
 from django.utils import timezone
-from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
+from django.views import View
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView, TemplateView
+from xhtml2pdf import pisa
 
 from apps.contaspagar.forms import ContasPagarForm
 from apps.contaspagar.models import ContasPagar
@@ -50,3 +57,51 @@ class DetailContaPagar(DetailView):
         obj.last_accessed = timezone.now()
         obj.save()
         return obj
+
+#Relatórios
+
+class ExportarExcel(View):
+    def get(self, request):
+        response = HttpResponse(content_type='application/ms-excel')
+        response['Content-Disposition'] = 'attachment; filename="relatorio_contas_a_pagar.xls"'
+
+        wb = xlwt.Workbook(encoding='utf-8')
+        ws = wb.add_sheet('Contas a Pagar')
+
+        row_num = 0
+
+        font_style = xlwt.XFStyle()
+        font_style.font.bold = True
+
+        columns = ['nome', 'descricao', 'parcela_atual', 'data_documento', 'data_pagar',
+                      'valor', 'numero_parcela_total', 'status']
+
+        for col_num in range(len(columns)):
+            ws.write(row_num, col_num, columns[col_num], font_style)
+
+        font_style = xlwt.XFStyle()
+
+        registros = ContasPagar.objects.filter(status=False)
+
+        row_num = 1
+        for registro in registros:
+            ws.write(row_num, 0, registro.nome, font_style)
+            ws.write(row_num, 1, registro.descricao,  font_style)
+            ws.write(row_num, 2, registro.parcela_atual, font_style)
+            ws.write(row_num, 3, registro.data_documento, font_style)
+            ws.write(row_num, 5, registro.data_pagar, font_style)
+            ws.write(row_num, 6, registro.valor, font_style)
+            ws.write(row_num, 7, registro.numero_parcela_total, font_style)
+            ws.write(row_num, 8, registro.status , font_style)
+            row_num += 1
+
+        wb.save(response)
+        return response
+
+
+
+
+
+
+
+

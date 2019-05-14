@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+ {% block main %}
+
+
+  <div class="container">
+        <h3>Clientes</h3>
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome</th>
+              <th scope="col">CNPJ</th>
+              <th scope="col">Endereço</th>
+
+            </tr>
+          </thead>
+          <tbody>
+          {% for cliente in object_list %}
+            <tr>
+              <th scope="row">{{ cliente.id }}</th>
+              <td>{{ cliente.nome }}</td>
+              <td>{{ cliente.cnpj }}</td>
+              <td>{{ cliente.endereco }}</td>
+
+            </tr>
+          {% empty %}
+            Nenhum cliente cadastrado!
+          {% endfor %}
+          </tbody>
+      </table>
+
+      <a href="{% url 'create_cliente' %}" style="color:black">
+      <i class="fa fa-plus-square" aria-hidden="true" style="font-size:30px;"></i>
+    </a>
+  </div>
+
+ {% endblock %}
