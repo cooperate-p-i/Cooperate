@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 # Create your views here.
@@ -7,7 +8,7 @@ from django.views.generic import CreateView, ListView, DeleteView, DetailView, U
 from django.views.generic.base import View
 
 from apps.ambiental.forms import PropriedadeForm
-from apps.ambiental.models import Propriedade
+from apps.ambiental.models import Propriedade, Cultura
 
 
 class CreatePropriedade(CreateView):
@@ -44,8 +45,23 @@ class UpdatePropriedade(UpdateView):
         model = Propriedade
         fields = ['nome', 'areaTotal','areaReserva','responsavel', 'proprietario', 'culturaPrimaria', 'rebanho1']
 
-
+@login_required
 def homeAmbiental(request):
     data = {}
     data['usuario'] = request.user
     return render(request, 'ambiental/ambiental_index.html', data)
+
+
+#Culturas
+class ListCultura(ListView):
+    model = Cultura
+
+class CreateCultura(CreateView):
+    model = Cultura
+    fields = ['nome', 'tipo', 'areaPlantada', 'propriedade']
+
+class UpdateCultura(CreateView):
+    model = Cultura
+    fields = ['nome', 'tipo', 'areaPlantada', 'propriedade']
+
+

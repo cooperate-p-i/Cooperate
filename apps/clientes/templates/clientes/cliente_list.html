@@ -20,7 +20,7 @@
           {% for cliente in object_list %}
             <tr>
               <th scope="row">{{ cliente.id }}</th>
-              <td>{{ cliente.nome }}</td>
+              <td> <a href="{% url 'update_cliente' cliente.id %}" style="color:black"> {{ cliente.nome }} </a></td>
               <td>{{ cliente.cnpj }}</td>
               <td>{{ cliente.endereco }}</td>
 

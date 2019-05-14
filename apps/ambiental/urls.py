@@ -1,6 +1,7 @@
 from django.urls import path
 
-from apps.ambiental.views import CreatePropriedade, UpdatePropriedade, DetailPropriedade, ListPropriedade, homeAmbiental
+from apps.ambiental.views import CreatePropriedade, UpdatePropriedade, DetailPropriedade, ListPropriedade, homeAmbiental,\
+                                   CreateCultura, ListCultura, UpdateCultura
 
 urlpatterns =  [
 
@@ -10,6 +11,11 @@ urlpatterns =  [
     path('', ListPropriedade.as_view(), name = 'list_propriedade'),
 
     path('modulo', homeAmbiental, name = 'home_ambiental'),
+
+    path('create', CreateCultura.as_view(), name = 'create_cultura'),
+    path('', ListCultura.as_view(), name = 'list_cultura'),
+    path('update/<int:pk>', UpdateCultura.as_view(), name = 'update_cultura'),
+
 
 
 ]

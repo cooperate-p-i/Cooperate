@@ -15,6 +15,6 @@ class PropriedadeForm(ModelForm):
 
     class Meta:
         model = Propriedade
-        fields = ['nome', 'areaTotal','areaReserva','responsavel', 'proprietario', 'culturaPrimaria', 'rebanho1']
+        fields = ['nome', 'areaTotal','areaReserva','responsavel', 'proprietario']
 
 
