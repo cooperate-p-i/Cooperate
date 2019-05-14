@@ -29,10 +29,10 @@ class Cultura(models.Model):
     def get_absolute_url(self):
         return reverse('list_cultura')
 
-class Rebanho(models.Model):
+class Producao(models.Model):
     tipo = models.CharField(max_length=(30))
     quantidade = models.IntegerField()
-    propriedade = models.ForeignKey(Propriedade, on_delete=models.CASCADE, null=True, blank=True)
+    unidade = models.CharField(max_length = (30))
 
     def get_absolute_url(self):
-        return reverse('list_rebanho')
+        return reverse('list_producao')

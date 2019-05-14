@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,9 +42,7 @@ INSTALLED_APPS = [
     'apps.ambiental',
     'apps.core',
     'apps.cooperativa',
-    'apps.contaspagar',
-    'apps.contasreceber',
-    'apps.centrocusto',
+    'apps.financeiro',
     'apps.clientes',
     'bootstrapform',
 
